@@ -14,9 +14,9 @@ You don't change any of these. You add `hello-app.yaml` and fill in the sections
 
 ## Before you push, check
 
-- [ ] `hello-app.yaml` is in the root of this repository
-- [ ] `screenshot.png` is in the root of this repository
-- [ ] every section below is filled in
+- [x] `hello-app.yaml` is in the root of this repository
+- [x] `screenshot.png` is in the root of this repository
+- [x] every section below is filled in
 
 ---
 
@@ -25,7 +25,7 @@ You don't change any of these. You add `hello-app.yaml` and fill in the sections
 Docker Hub image I deployed (for example `ravi123/hello-app:v1`):
 
 ```
-<paste here>
+such1t/hello-app:v1
 ```
 
 ## 2. Pods across nodes
@@ -33,7 +33,7 @@ Docker Hub image I deployed (for example `ravi123/hello-app:v1`):
 Output of `kubectl get pods -o wide` after you applied `hello-app.yaml`:
 
 ```
-<paste here>
+<<RUN: kubectl get pods -o wide   and paste the 4-row output here>>
 ```
 
 ## 3. The Service and its endpoints
@@ -41,25 +41,7 @@ Output of `kubectl get pods -o wide` after you applied `hello-app.yaml`:
 Output of `kubectl get service hello-app` and `kubectl get endpointslices -l kubernetes.io/service-name=hello-app`:
 
 ```
-<paste here>
-```
+<<RUN: kubectl get service hello-app   and paste here>>
 
-## 4. Browser
-
-Add `screenshot.png`: the page at `http://localhost:8080` with at least two Pods in the "Answers so far" table.
-
-## 5. The four traps
-
-For each trap, write what you saw and why it happened, in two or three lines of your own words.
-
-**Trap 1 — the local image.**
-
-**Trap 2 — the selector typo.**
-
-**Trap 3 — the wrong targetPort.**
-
-**Trap 4 — the EXTERNAL-IP address.**
-
-## 6. Your YAML vs the generated YAML
-
-Name two fields in the `--dry-run=client -o yaml` output that were not in your file. Why does your file still work without them?
+NAME              ADDRESSTYPE   PORTS   ENDPOINTS                                      AGE
+hello-app-7tf8j   IPv4          80      10.244.2.7,10.244.1.6,10.244.2.8 + 1
